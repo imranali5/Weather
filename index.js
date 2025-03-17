@@ -7,7 +7,6 @@ const weathericon= document.querySelector(".weather-icon");
 async function checkWeather(city) {
     const response= await fetch(apiurl+`&q=${city}&appid=${apikey}`);
     var data = await response.json();
-    console.log(data);
     document.querySelector(".city").innerHTML=data.name;
     document.querySelector(".temp").innerHTML=data.main.temp+" °C";
     document.querySelector(".humidity").innerHTML=data.main.humidity+"%";
@@ -55,13 +54,10 @@ searchbtn.addEventListener("click",()=>{
     
    let lat=position.coords.latitude;
    let lon=position.coords.longitude;
-   console.log(lat);
-   console.log(lon);
 
  const res= await fetch(apiurl+`&lat=${lat}&lon=${lon}&appid=${apikey}`);
     var data=await res.json();
-
-    console.log(data);
+     
     document.querySelector(".city").innerHTML=data.name;
     document.querySelector(".temp").innerHTML=data.main.temp+" °C";
     document.querySelector(".humidity").innerHTML=data.main.humidity+"%";
